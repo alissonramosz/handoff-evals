@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+# Reference baselines of handoff-evals, scored by promptfoo. No model call, no cost.
+#   cd integrations/promptfoo && npx promptfoo@latest eval -c promptfooconfig.yaml
+description: handoff-evals baselines
+prompts:
+  - '{{message}}'
+providers:
+  - id: exec:node provider-baseline.mjs always-answer
+    label: always-answer
+  - id: exec:node provider-baseline.mjs always-handoff
+    label: always-handoff
+  - id: exec:node provider-baseline.mjs keyword-en
+    label: keyword-en
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assert.mjs
+tests: file://tests.jsonl

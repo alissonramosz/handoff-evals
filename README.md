@@ -90,6 +90,12 @@ console.log(formatReport(report));
 
 The data are plain files, so any other evaluation tool can use them. A small runner is included so you need nothing else.
 
+### In promptfoo
+
+[`integrations/promptfoo`](integrations/promptfoo) runs the same 100 cases in [promptfoo](https://www.promptfoo.dev) and reproduces this score: accuracy per language, unsafe errors, needless handoffs and missed urgent cases.
+It has a config for the baselines (no model, no cost) and one for a real model.
+The baseline numbers it gives equal the ones above, and a test keeps the recipe in step with the dataset.
+
 ## Real-estate pack (Brazilian Portuguese)
 
 A second dataset, for the first-line assistant of a made-up real-estate agency ("Imobiliária Modelo": no real company, no real customer). It has the same four actions and adds what makes lead handling useful: after every message the assistant also fills a **lead card**, and the card is scored too.

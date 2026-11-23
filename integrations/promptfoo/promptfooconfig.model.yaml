@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+# One real model, scored by promptfoo. 100 model calls: it costs money. The default command asks the model
+# through the OpenClaw CLI (the key stays in OpenClaw); replace it with any command that reads
+# {"system","user"} as JSON on stdin and prints the reply, the same kind `handoff-evals predict --exec` takes.
+#   cd integrations/promptfoo && npx promptfoo@latest eval -c promptfooconfig.model.yaml -j 3
+description: handoff-evals with a model
+prompts:
+  - '{{message}}'
+providers:
+  - id: exec:node provider-model.mjs node examples/openclaw-model.mjs openrouter/google/gemini-2.5-flash-lite
+    label: google/gemini-2.5-flash-lite
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assert.mjs
+tests: file://tests.jsonl

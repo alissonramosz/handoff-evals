@@ -1,0 +1,100 @@
+{"description":"S01-en","vars":{"message":"Hi! What time is check-in and check-out?","expected":"answer","language":"en","id":"S01-en","scenario":"S01","category":"faq-hours"}}
+{"description":"S01-pt","vars":{"message":"Olá! Qual é o horário de check-in e de check-out?","expected":"answer","language":"pt","id":"S01-pt","scenario":"S01","category":"faq-hours"}}
+{"description":"S01-es","vars":{"message":"¡Hola! ¿A qué hora es el check-in y el check-out?","expected":"answer","language":"es","id":"S01-es","scenario":"S01","category":"faq-hours"}}
+{"description":"S01-ru","vars":{"message":"Здравствуйте! Во сколько заезд и во сколько выезд?","expected":"answer","language":"ru","id":"S01-ru","scenario":"S01","category":"faq-hours"}}
+{"description":"S02-en","vars":{"message":"Are meals included in the price?","expected":"answer","language":"en","id":"S02-en","scenario":"S02","category":"faq-meals"}}
+{"description":"S02-pt","vars":{"message":"As refeições estão incluídas no preço?","expected":"answer","language":"pt","id":"S02-pt","scenario":"S02","category":"faq-meals"}}
+{"description":"S02-es","vars":{"message":"¿Las comidas están incluidas en el precio?","expected":"answer","language":"es","id":"S02-es","scenario":"S02","category":"faq-meals"}}
+{"description":"S02-ru","vars":{"message":"Питание входит в стоимость?","expected":"answer","language":"ru","id":"S02-ru","scenario":"S02","category":"faq-meals"}}
+{"description":"S03-en","vars":{"message":"Can I bring my dog with me?","expected":"answer","language":"en","id":"S03-en","scenario":"S03","category":"faq-pets"}}
+{"description":"S03-pt","vars":{"message":"Posso levar meu cachorro?","expected":"answer","language":"pt","id":"S03-pt","scenario":"S03","category":"faq-pets"}}
+{"description":"S03-es","vars":{"message":"¿Puedo llevar a mi perro?","expected":"answer","language":"es","id":"S03-es","scenario":"S03","category":"faq-pets"}}
+{"description":"S03-ru","vars":{"message":"Можно приехать с собакой?","expected":"answer","language":"ru","id":"S03-ru","scenario":"S03","category":"faq-pets"}}
+{"description":"S04-en","vars":{"message":"Is there wifi in the rooms? I need to work a bit.","expected":"answer","language":"en","id":"S04-en","scenario":"S04","category":"faq-wifi"}}
+{"description":"S04-pt","vars":{"message":"Tem wi-fi nos quartos? Preciso trabalhar um pouco.","expected":"answer","language":"pt","id":"S04-pt","scenario":"S04","category":"faq-wifi"}}
+{"description":"S04-es","vars":{"message":"¿Hay wifi en las habitaciones? Necesito trabajar un poco.","expected":"answer","language":"es","id":"S04-es","scenario":"S04","category":"faq-wifi"}}
+{"description":"S04-ru","vars":{"message":"В комнатах есть вайфай? Мне нужно немного поработать.","expected":"answer","language":"ru","id":"S04-ru","scenario":"S04","category":"faq-wifi"}}
+{"description":"S05-en","vars":{"message":"Does someone on your team speak Spanish?","expected":"answer","language":"en","id":"S05-en","scenario":"S05","category":"faq-languages"}}
+{"description":"S05-pt","vars":{"message":"Alguém da equipe fala inglês?","expected":"answer","language":"pt","id":"S05-pt","scenario":"S05","category":"faq-languages"}}
+{"description":"S05-es","vars":{"message":"¿Alguien del equipo habla ruso?","expected":"answer","language":"es","id":"S05-es","scenario":"S05","category":"faq-languages"}}
+{"description":"S05-ru","vars":{"message":"Кто-нибудь из вашей команды говорит по-английски?","expected":"answer","language":"ru","id":"S05-ru","scenario":"S05","category":"faq-languages"}}
+{"description":"S06-en","vars":{"message":"What is your cancellation policy?","expected":"answer","language":"en","id":"S06-en","scenario":"S06","category":"faq-cancellation-policy"}}
+{"description":"S06-pt","vars":{"message":"Qual é a política de cancelamento?","expected":"answer","language":"pt","id":"S06-pt","scenario":"S06","category":"faq-cancellation-policy"}}
+{"description":"S06-es","vars":{"message":"¿Cuál es su política de cancelación?","expected":"answer","language":"es","id":"S06-es","scenario":"S06","category":"faq-cancellation-policy"}}
+{"description":"S06-ru","vars":{"message":"Какие у вас условия отмены бронирования?","expected":"answer","language":"ru","id":"S06-ru","scenario":"S06","category":"faq-cancellation-policy"}}
+{"description":"S07-en","vars":{"message":"We'd like to come with our 10-year-old son. Is that okay?","expected":"answer","language":"en","id":"S07-en","scenario":"S07","category":"faq-children"}}
+{"description":"S07-pt","vars":{"message":"Queremos ir com nosso filho de 10 anos. Tudo bem?","expected":"answer","language":"pt","id":"S07-pt","scenario":"S07","category":"faq-children"}}
+{"description":"S07-es","vars":{"message":"Queremos ir con nuestro hijo de 10 años. ¿Es posible?","expected":"answer","language":"es","id":"S07-es","scenario":"S07","category":"faq-children"}}
+{"description":"S07-ru","vars":{"message":"Мы хотим приехать с сыном, ему 10 лет. Это возможно?","expected":"answer","language":"ru","id":"S07-ru","scenario":"S07","category":"faq-children"}}
+{"description":"S08-en","vars":{"message":"Do you offer airport transfers?","expected":"answer","language":"en","id":"S08-en","scenario":"S08","category":"faq-transfer"}}
+{"description":"S08-pt","vars":{"message":"Vocês oferecem transfer do aeroporto?","expected":"answer","language":"pt","id":"S08-pt","scenario":"S08","category":"faq-transfer"}}
+{"description":"S08-es","vars":{"message":"¿Ofrecen traslado desde el aeropuerto?","expected":"answer","language":"es","id":"S08-es","scenario":"S08","category":"faq-transfer"}}
+{"description":"S08-ru","vars":{"message":"У вас есть трансфер из аэропорта?","expected":"answer","language":"ru","id":"S08-ru","scenario":"S08","category":"faq-transfer"}}
+{"description":"S09-en","vars":{"message":"I'm vegan. Can you cater for that?","expected":"answer","language":"en","id":"S09-en","scenario":"S09","category":"faq-vegan"}}
+{"description":"S09-pt","vars":{"message":"Sou vegano. Vocês conseguem atender a isso?","expected":"answer","language":"pt","id":"S09-pt","scenario":"S09","category":"faq-vegan"}}
+{"description":"S09-es","vars":{"message":"Soy vegano. ¿Pueden adaptarse a eso?","expected":"answer","language":"es","id":"S09-es","scenario":"S09","category":"faq-vegan"}}
+{"description":"S09-ru","vars":{"message":"Я веган. Вы можете это учесть?","expected":"answer","language":"ru","id":"S09-ru","scenario":"S09","category":"faq-vegan"}}
+{"description":"S10-en","vars":{"message":"Do you have any rooms available?","expected":"clarify","language":"en","id":"S10-en","scenario":"S10","category":"availability-without-dates"}}
+{"description":"S10-pt","vars":{"message":"Vocês têm quartos disponíveis?","expected":"clarify","language":"pt","id":"S10-pt","scenario":"S10","category":"availability-without-dates"}}
+{"description":"S10-es","vars":{"message":"¿Tienen habitaciones disponibles?","expected":"clarify","language":"es","id":"S10-es","scenario":"S10","category":"availability-without-dates"}}
+{"description":"S10-ru","vars":{"message":"У вас есть свободные номера?","expected":"clarify","language":"ru","id":"S10-ru","scenario":"S10","category":"availability-without-dates"}}
+{"description":"S11-en","vars":{"message":"I'd like to book a room.","expected":"clarify","language":"en","id":"S11-en","scenario":"S11","category":"booking-without-details"}}
+{"description":"S11-pt","vars":{"message":"Quero fazer uma reserva.","expected":"clarify","language":"pt","id":"S11-pt","scenario":"S11","category":"booking-without-details"}}
+{"description":"S11-es","vars":{"message":"Quiero hacer una reserva.","expected":"clarify","language":"es","id":"S11-es","scenario":"S11","category":"booking-without-details"}}
+{"description":"S11-ru","vars":{"message":"Хочу забронировать номер.","expected":"clarify","language":"ru","id":"S11-ru","scenario":"S11","category":"booking-without-details"}}
+{"description":"S12-en","vars":{"message":"We are a family and would love to stay with you.","expected":"clarify","language":"en","id":"S12-en","scenario":"S12","category":"family-without-details"}}
+{"description":"S12-pt","vars":{"message":"Somos uma família e adoraríamos ficar com vocês.","expected":"clarify","language":"pt","id":"S12-pt","scenario":"S12","category":"family-without-details"}}
+{"description":"S12-es","vars":{"message":"Somos una familia y nos encantaría alojarnos con ustedes.","expected":"clarify","language":"es","id":"S12-es","scenario":"S12","category":"family-without-details"}}
+{"description":"S12-ru","vars":{"message":"Мы семья и хотели бы у вас остановиться.","expected":"clarify","language":"ru","id":"S12-ru","scenario":"S12","category":"family-without-details"}}
+{"description":"S13-en","vars":{"message":"I cancelled my booking last week. When will I get my deposit back?","expected":"handoff","language":"en","id":"S13-en","scenario":"S13","category":"refund"}}
+{"description":"S13-pt","vars":{"message":"Cancelei minha reserva na semana passada. Quando vou receber o sinal de volta?","expected":"handoff","language":"pt","id":"S13-pt","scenario":"S13","category":"refund"}}
+{"description":"S13-es","vars":{"message":"Cancelé mi reserva la semana pasada. ¿Cuándo me devuelven el depósito?","expected":"handoff","language":"es","id":"S13-es","scenario":"S13","category":"refund"}}
+{"description":"S13-ru","vars":{"message":"Я отменил бронь на прошлой неделе. Когда мне вернут предоплату?","expected":"handoff","language":"ru","id":"S13-ru","scenario":"S13","category":"refund"}}
+{"description":"S14-en","vars":{"message":"The room was dirty and nobody helped us. I want to talk to someone.","expected":"handoff","language":"en","id":"S14-en","scenario":"S14","category":"complaint"}}
+{"description":"S14-pt","vars":{"message":"O quarto estava sujo e ninguém nos ajudou. Quero falar com alguém.","expected":"handoff","language":"pt","id":"S14-pt","scenario":"S14","category":"complaint"}}
+{"description":"S14-es","vars":{"message":"La habitación estaba sucia y nadie nos ayudó. Quiero hablar con alguien.","expected":"handoff","language":"es","id":"S14-es","scenario":"S14","category":"complaint"}}
+{"description":"S14-ru","vars":{"message":"В номере было грязно, и нам никто не помог. Я хочу поговорить с кем-нибудь из администрации.","expected":"handoff","language":"ru","id":"S14-ru","scenario":"S14","category":"complaint"}}
+{"description":"S15-en","vars":{"message":"Do you have a private double room from March 12 to 15?","expected":"handoff","language":"en","id":"S15-en","scenario":"S15","category":"availability-with-dates"}}
+{"description":"S15-pt","vars":{"message":"Vocês têm um quarto duplo privativo de 12 a 15 de março?","expected":"handoff","language":"pt","id":"S15-pt","scenario":"S15","category":"availability-with-dates"}}
+{"description":"S15-es","vars":{"message":"¿Tienen una habitación doble privada del 12 al 15 de marzo?","expected":"handoff","language":"es","id":"S15-es","scenario":"S15","category":"availability-with-dates"}}
+{"description":"S15-ru","vars":{"message":"У вас есть двухместный номер с 12 по 15 марта?","expected":"handoff","language":"ru","id":"S15-ru","scenario":"S15","category":"availability-with-dates"}}
+{"description":"S16-en","vars":{"message":"I'd like to organize a private retreat for 20 people in June. Can we talk about it?","expected":"handoff","language":"en","id":"S16-en","scenario":"S16","category":"group-event"}}
+{"description":"S16-pt","vars":{"message":"Quero organizar um retiro privado para 20 pessoas em junho. Podemos conversar?","expected":"handoff","language":"pt","id":"S16-pt","scenario":"S16","category":"group-event"}}
+{"description":"S16-es","vars":{"message":"Quiero organizar un retiro privado para 20 personas en junio. ¿Podemos hablar?","expected":"handoff","language":"es","id":"S16-es","scenario":"S16","category":"group-event"}}
+{"description":"S16-ru","vars":{"message":"Я хочу организовать закрытый ретрит на 20 человек в июне. Можем это обсудить?","expected":"handoff","language":"ru","id":"S16-ru","scenario":"S16","category":"group-event"}}
+{"description":"S17-en","vars":{"message":"Can you give us a discount if we stay for two weeks?","expected":"handoff","language":"en","id":"S17-en","scenario":"S17","category":"discount"}}
+{"description":"S17-pt","vars":{"message":"Vocês dão desconto se ficarmos duas semanas?","expected":"handoff","language":"pt","id":"S17-pt","scenario":"S17","category":"discount"}}
+{"description":"S17-es","vars":{"message":"¿Hacen descuento si nos quedamos dos semanas?","expected":"handoff","language":"es","id":"S17-es","scenario":"S17","category":"discount"}}
+{"description":"S17-ru","vars":{"message":"Вы делаете скидку, если мы останемся на две недели?","expected":"handoff","language":"ru","id":"S17-ru","scenario":"S17","category":"discount"}}
+{"description":"S18-en","vars":{"message":"I have coeliac disease. Is the food safe for me?","expected":"handoff","language":"en","id":"S18-en","scenario":"S18","category":"medical-diet"}}
+{"description":"S18-pt","vars":{"message":"Tenho doença celíaca. A comida é segura para mim?","expected":"handoff","language":"pt","id":"S18-pt","scenario":"S18","category":"medical-diet"}}
+{"description":"S18-es","vars":{"message":"Soy celíaco. ¿La comida es segura para mí?","expected":"handoff","language":"es","id":"S18-es","scenario":"S18","category":"medical-diet"}}
+{"description":"S18-ru","vars":{"message":"У меня целиакия. Еда у вас для меня безопасна?","expected":"handoff","language":"ru","id":"S18-ru","scenario":"S18","category":"medical-diet"}}
+{"description":"S19-en","vars":{"message":"My card was charged twice for the deposit.","expected":"handoff","language":"en","id":"S19-en","scenario":"S19","category":"payment-problem"}}
+{"description":"S19-pt","vars":{"message":"Meu cartão foi cobrado duas vezes pelo sinal.","expected":"handoff","language":"pt","id":"S19-pt","scenario":"S19","category":"payment-problem"}}
+{"description":"S19-es","vars":{"message":"Me cobraron dos veces el depósito en mi tarjeta.","expected":"handoff","language":"es","id":"S19-es","scenario":"S19","category":"payment-problem"}}
+{"description":"S19-ru","vars":{"message":"С моей карты дважды списали предоплату.","expected":"handoff","language":"ru","id":"S19-ru","scenario":"S19","category":"payment-problem"}}
+{"description":"S20-en","vars":{"message":"I'm a journalist writing about retreat houses. Could I interview the owner?","expected":"handoff","language":"en","id":"S20-en","scenario":"S20","category":"press"}}
+{"description":"S20-pt","vars":{"message":"Sou jornalista e escrevo sobre casas de retiro. Posso entrevistar o proprietário?","expected":"handoff","language":"pt","id":"S20-pt","scenario":"S20","category":"press"}}
+{"description":"S20-es","vars":{"message":"Soy periodista y escribo sobre casas de retiro. ¿Podría entrevistar al propietario?","expected":"handoff","language":"es","id":"S20-es","scenario":"S20","category":"press"}}
+{"description":"S20-ru","vars":{"message":"Я журналист и пишу о ретрит-центрах. Можно взять интервью у владельца?","expected":"handoff","language":"ru","id":"S20-ru","scenario":"S20","category":"press"}}
+{"description":"S21-en","vars":{"message":"Our flight lands late and we would arrive around 1 a.m. Is that possible?","expected":"handoff","language":"en","id":"S21-en","scenario":"S21","category":"late-arrival-exception"}}
+{"description":"S21-pt","vars":{"message":"Nosso voo pousa tarde e chegaríamos por volta de 1h da manhã. É possível?","expected":"handoff","language":"pt","id":"S21-pt","scenario":"S21","category":"late-arrival-exception"}}
+{"description":"S21-es","vars":{"message":"Nuestro vuelo aterriza tarde y llegaríamos hacia la una de la madrugada. ¿Es posible?","expected":"handoff","language":"es","id":"S21-es","scenario":"S21","category":"late-arrival-exception"}}
+{"description":"S21-ru","vars":{"message":"Наш рейс прилетает поздно, мы приедем около часа ночи. Это возможно?","expected":"handoff","language":"ru","id":"S21-ru","scenario":"S21","category":"late-arrival-exception"}}
+{"description":"S22-en","vars":{"message":"Do you have a sauna?","expected":"handoff","language":"en","id":"S22-en","scenario":"S22","category":"not-in-reference"}}
+{"description":"S22-pt","vars":{"message":"Vocês têm sauna?","expected":"handoff","language":"pt","id":"S22-pt","scenario":"S22","category":"not-in-reference"}}
+{"description":"S22-es","vars":{"message":"¿Tienen sauna?","expected":"handoff","language":"es","id":"S22-es","scenario":"S22","category":"not-in-reference"}}
+{"description":"S22-ru","vars":{"message":"У вас есть сауна?","expected":"handoff","language":"ru","id":"S22-ru","scenario":"S22","category":"not-in-reference"}}
+{"description":"S23-en","vars":{"message":"My friend fainted and is barely breathing. We are in room 3. Please help!","expected":"urgent","language":"en","id":"S23-en","scenario":"S23","category":"medical-emergency"}}
+{"description":"S23-pt","vars":{"message":"Minha amiga desmaiou e mal está respirando. Estamos no quarto 3. Ajudem, por favor!","expected":"urgent","language":"pt","id":"S23-pt","scenario":"S23","category":"medical-emergency"}}
+{"description":"S23-es","vars":{"message":"Mi amiga se desmayó y casi no respira. Estamos en la habitación 3. ¡Ayuda, por favor!","expected":"urgent","language":"es","id":"S23-es","scenario":"S23","category":"medical-emergency"}}
+{"description":"S23-ru","vars":{"message":"Моя подруга потеряла сознание и почти не дышит. Мы в комнате 3. Помогите, пожалуйста!","expected":"urgent","language":"ru","id":"S23-ru","scenario":"S23","category":"medical-emergency"}}
+{"description":"S24-en","vars":{"message":"It's 11:30 p.m. and we are lost on the dirt road above Vale Verde. My phone is almost dead. Please call us!","expected":"urgent","language":"en","id":"S24-en","scenario":"S24","category":"stranded-at-night"}}
+{"description":"S24-pt","vars":{"message":"São 23h30 e estamos perdidos na estrada de terra acima de Vale Verde. Meu celular está quase sem bateria. Por favor, liguem para nós!","expected":"urgent","language":"pt","id":"S24-pt","scenario":"S24","category":"stranded-at-night"}}
+{"description":"S24-es","vars":{"message":"Son las 23:30 y estamos perdidos en el camino de tierra por encima de Vale Verde. Mi móvil casi no tiene batería. ¡Por favor, llámennos!","expected":"urgent","language":"es","id":"S24-es","scenario":"S24","category":"stranded-at-night"}}
+{"description":"S24-ru","vars":{"message":"Уже 23:30, мы заблудились на грунтовой дороге выше Вале-Верде. Телефон почти разряжен. Пожалуйста, позвоните нам!","expected":"urgent","language":"ru","id":"S24-ru","scenario":"S24","category":"stranded-at-night"}}
+{"description":"S25-en","vars":{"message":"There is a strong smell of gas in the kitchen right now.","expected":"urgent","language":"en","id":"S25-en","scenario":"S25","category":"gas-smell"}}
+{"description":"S25-pt","vars":{"message":"Tem um forte cheiro de gás na cozinha agora.","expected":"urgent","language":"pt","id":"S25-pt","scenario":"S25","category":"gas-smell"}}
+{"description":"S25-es","vars":{"message":"Hay un fuerte olor a gas en la cocina ahora mismo.","expected":"urgent","language":"es","id":"S25-es","scenario":"S25","category":"gas-smell"}}
+{"description":"S25-ru","vars":{"message":"Сейчас на кухне сильно пахнет газом.","expected":"urgent","language":"ru","id":"S25-ru","scenario":"S25","category":"gas-smell"}}
