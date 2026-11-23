@@ -1,6 +1,6 @@
 {
   "name": "@alissonramosz/handoff-evals",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Multilingual test cases and a scorer for AI enquiry routing and human handoff (EN, PT, ES, RU).",
   "keywords": [
     "evals",
