@@ -1,30 +1,40 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { BASELINES, formatBaselineTable } from './baselines.js';
 import { casesToJsonl, loadCases, readText } from './dataset.js';
-import { buildSystemPrompt, predictAll } from './predict.js';
+import { formatLeadReport, scoreLeads } from './lead.js';
+import { buildSystemPrompt, execCompleter, parseReply, predictAll } from './predict.js';
+import { DATASET_FILES, formatRealEstateBaselines, loadRealEstateCases } from './realestate.js';
 import { formatReport, score } from './score.js';
-import type { Prediction } from './types.js';
+import { DATASETS, type Case, type DatasetName, type Prediction } from './types.js';
 
 export interface Io {
   out(text: string): void;
   err(text: string): void;
 }
 
-export const HELP = `handoff-evals: multilingual test cases for AI enquiry routing and human handoff
+export const HELP = `handoff-evals: test cases for AI enquiry routing and human handoff
 
 Usage: handoff-evals <command> [options]
 
 Commands:
   baselines                       Score the reference baselines on the dataset.
-  export                          Print the 100 test cases as JSON Lines.
+  export                          Print the test cases as JSON Lines.
   predict --base-url URL --model NAME [options]
-                                  Ask a model about every case through an OpenAI-compatible
-                                  /chat/completions endpoint and write its predictions.
+  predict --exec COMMAND [options]
+                                  Ask a model about every case and write its predictions: through
+                                  an OpenAI-compatible /chat/completions endpoint, or through a
+                                  command that is run once per case (no shell; it reads
+                                  {"system","user"} as JSON on stdin and prints the reply).
       --api-key-env NAME          Environment variable that holds the API key (optional).
-      --prompt FILE               Your own system prompt (default: prompts/router.md).
+      --prompt FILE               Your own system prompt (default: the one of the dataset).
       --concurrency N             Requests in flight at the same time (default 4).
       --out FILE                  Predictions file (default predictions.jsonl).
-  score FILE [--json]             Score a predictions file: one {"id","action"} object per line.
+  score FILE [--json]             Score a predictions file: one {"id","action"} object per line
+                                  (and a "lead" object on the real-estate dataset).
+
+Every command takes --dataset NAME:
+  retreat                         100 multilingual cases (EN, PT, ES, RU). The default.
+  realestate                      43 Brazilian Portuguese cases that also score the lead card.
 `;
 
 type Flags = Map<string, string | true>;
@@ -58,6 +68,16 @@ function text(flags: Flags, name: string): string | undefined {
   return typeof value === 'string' ? value : undefined;
 }
 
+function datasetOf(flags: Flags): DatasetName {
+  const name = text(flags, 'dataset') ?? 'retreat';
+  if (!(DATASETS as readonly string[]).includes(name)) {
+    throw new Error(`Unknown dataset "${name}". Use one of: ${DATASETS.join(', ')}`);
+  }
+  return name as DatasetName;
+}
+
+const casesOf = (dataset: DatasetName): Case[] => (dataset === 'realestate' ? loadRealEstateCases() : loadCases());
+
 export function readPredictions(path: string): Prediction[] {
   const predictions: Prediction[] = [];
   for (const [index, line] of readFileSync(path, 'utf8').split('\n').entries()) {
@@ -68,11 +88,13 @@ export function readPredictions(path: string): Prediction[] {
     } catch {
       throw new Error(`${path} line ${index + 1}: not valid JSON`);
     }
-    const { id, action } = (value ?? {}) as Partial<Prediction>;
+    const { id, action, lead, raw } = (value ?? {}) as Partial<Prediction> & { raw?: unknown };
     if (typeof id !== 'string' || typeof action !== 'string') {
       throw new Error(`${path} line ${index + 1}: each line needs a string "id" and a string "action"`);
     }
-    predictions.push({ id, action });
+    // A predictions file written by `predict` keeps the model's reply, which holds the lead card.
+    const found = lead !== undefined ? lead : typeof raw === 'string' ? parseReply(raw).lead : undefined;
+    predictions.push(found === undefined ? { id, action } : { id, action, lead: found });
   }
   return predictions;
 }
@@ -93,41 +115,57 @@ export async function run(
     const { positional, flags } = parseArgs(rest);
 
     if (command === 'baselines') {
-      io.out(formatBaselineTable(loadCases()));
+      const dataset = datasetOf(flags);
+      io.out(dataset === 'realestate' ? formatRealEstateBaselines(casesOf(dataset)) : formatBaselineTable(loadCases()));
       io.out('');
-      for (const b of BASELINES) io.out(`- \`${b.name}\`: ${b.description}`);
+      for (const b of BASELINES) {
+        if (dataset === 'retreat' || b.name !== 'keyword-en') io.out(`- \`${b.name}\`: ${b.description}`);
+      }
       return 0;
     }
 
     if (command === 'export') {
-      io.out(casesToJsonl(loadCases()).trimEnd());
+      io.out(casesToJsonl(casesOf(datasetOf(flags))).trimEnd());
       return 0;
     }
 
     if (command === 'score') {
       const file = positional[0];
       if (!file) throw new Error('score needs a predictions file');
-      const report = score(loadCases(), readPredictions(file));
-      io.out(flags.has('json') ? JSON.stringify(report, null, 2) : formatReport(report));
+      const dataset = datasetOf(flags);
+      const cases = casesOf(dataset);
+      const predictions = readPredictions(file);
+      const report = score(cases, predictions);
+      if (dataset === 'realestate') {
+        const leads = scoreLeads(cases, predictions);
+        io.out(flags.has('json') ? JSON.stringify({ ...report, leads }, null, 2) : `${formatReport(report, false)}\n\n${formatLeadReport(leads)}`);
+      } else {
+        io.out(flags.has('json') ? JSON.stringify(report, null, 2) : formatReport(report));
+      }
       return 0;
     }
 
     if (command === 'predict') {
+      const dataset = datasetOf(flags);
       const baseUrl = text(flags, 'base-url');
       const model = text(flags, 'model');
-      if (!baseUrl || !model) throw new Error('predict needs --base-url and --model');
+      const execCommand = text(flags, 'exec');
+      if (!execCommand && (!baseUrl || !model)) throw new Error('predict needs --base-url and --model (or --exec)');
+      if (execCommand && (baseUrl || model)) throw new Error('Use --exec, or --base-url with --model, not both');
       const keyName = text(flags, 'api-key-env');
       const apiKey = keyName ? env[keyName] : undefined;
       if (keyName && !apiKey) throw new Error(`The environment variable ${keyName} is empty or not set`);
+      const files = DATASET_FILES[dataset];
       const promptFile = text(flags, 'prompt');
-      const template = promptFile ? readFileSync(promptFile, 'utf8') : readText('prompts/router.md');
+      const template = promptFile ? readFileSync(promptFile, 'utf8') : readText(files.prompt);
       const out = text(flags, 'out') ?? 'predictions.jsonl';
-      const cases = loadCases();
+      const cases = casesOf(dataset);
       const results = await predictAll({
         baseUrl,
         model,
         apiKey,
-        systemPrompt: buildSystemPrompt(template, readText('dataset/business.md')),
+        complete: execCommand ? execCompleter(execCommand) : undefined,
+        systemPrompt: buildSystemPrompt(template, readText(files.business)),
         cases,
         concurrency: Number(text(flags, 'concurrency') ?? 4),
         fetchImpl,
@@ -136,7 +174,8 @@ export async function run(
         },
       });
       writeFileSync(out, results.map((r) => JSON.stringify(r)).join('\n') + '\n');
-      io.out(`Wrote ${results.length} predictions to ${out}. Score them with: handoff-evals score ${out}`);
+      const datasetFlag = dataset === 'retreat' ? '' : ` --dataset ${dataset}`;
+      io.out(`Wrote ${results.length} predictions to ${out}. Score them with: handoff-evals score ${out}${datasetFlag}`);
       return 0;
     }
 

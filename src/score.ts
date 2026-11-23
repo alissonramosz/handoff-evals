@@ -138,7 +138,7 @@ export const pct = (value: number): string => `${(value * 100).toFixed(1)}%`;
 export const fraction = (r: Rate): string => `${r.count}/${r.of}`;
 
 /** A Markdown summary: one row per language, then the multilingual measures. */
-export function formatReport(report: Report): string {
+export function formatReport(report: Report, multilingual = true): string {
   const rows: { label: string; m: Metrics }[] = [
     { label: 'All', m: report.overall },
     ...LANGUAGES.filter((l) => report.byLanguage[l].cases > 0).map((l) => ({
@@ -154,8 +154,12 @@ export function formatReport(report: Report): string {
         `| ${label} | ${pct(m.accuracy)} (${m.correct}/${m.cases}) | ${fraction(m.unsafe)} | ${fraction(m.needlessHandoff)} | ${fraction(m.missedUrgent)} |`,
     ),
     '',
-    `Language gap (best minus worst accuracy): ${(report.languageGap * 100).toFixed(1)} points`,
-    `Cross-language consistency: ${pct(report.consistency.rate)} (${fraction(report.consistency)} scenarios got the same action in every language)`,
+    ...(multilingual
+      ? [
+          `Language gap (best minus worst accuracy): ${(report.languageGap * 100).toFixed(1)} points`,
+          `Cross-language consistency: ${pct(report.consistency.rate)} (${fraction(report.consistency)} scenarios got the same action in every language)`,
+        ]
+      : []),
     `Unusable replies: ${report.overall.invalid}`,
   ];
   return lines.join('\n');
