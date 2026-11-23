@@ -41,6 +41,7 @@
   "files": [
     "dist",
     "dataset",
+    "examples",
     "prompts",
     "README.md",
     "LICENSE"

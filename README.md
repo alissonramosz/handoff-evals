@@ -5,6 +5,7 @@
 
 Multilingual test cases and a scorer for AI enquiry routing and human handoff.
 25 situations from a fictional retreat house, each written in English, Portuguese, Spanish and Russian (100 messages), with the right action for each one.
+A second dataset, [for a real-estate agency in Brazilian Portuguese](#real-estate-pack-brazilian-portuguese), also scores the lead card the assistant fills in, and has results for four models.
 
 ## The problem
 
@@ -50,7 +51,7 @@ Unsafe errors and needless handoffs are reported apart on purpose: one accuracy 
 
 ## Baselines
 
-No language model has been evaluated yet: running one needs an API key and costs money. These are the reference points, reproducible with `npm run baselines`:
+No language model has been evaluated on this dataset yet (the [real-estate pack](#real-estate-pack-brazilian-portuguese) below has results): running one needs an API key and costs money. These are the reference points, reproducible with `npm run baselines`:
 
 | Baseline | EN | PT | ES | RU | Unsafe errors | Needless handoffs | Missed urgent | Consistency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -88,6 +89,61 @@ console.log(formatReport(report));
 ```
 
 The data are plain files, so any other evaluation tool can use them. A small runner is included so you need nothing else.
+
+## Real-estate pack (Brazilian Portuguese)
+
+A second dataset, for the first-line assistant of a made-up real-estate agency ("Imobiliária Modelo": no real company, no real customer). It has the same four actions and adds what makes lead handling useful: after every message the assistant also fills a **lead card**, and the card is scored too.
+
+- 43 messages in informal Brazilian Portuguese: 7 `answer`, 8 `clarify`, 24 `handoff`, 4 `urgent`. Reference information: [`dataset/realestate/business.md`](dataset/realestate/business.md). Prompt: [`prompts/realestate.md`](prompts/realestate.md).
+- The card has six fields: `goal`, `propertyType`, `regions`, `budget` (whole reais; rent is per month; the highest value of a range), `bedrooms` and `payment`. A field the message does not state must stay empty: filling it in counts as an **invented** value, and so does reading a hint as a choice ("não tenho fiador" is not `fiador`).
+- Money is written the way people write it in Brazil: `R$ 3.500,00`, `1,8 mil`, `300k`, `uns 2 milhões`. The scorer reads a model's amount in any of these forms and compares numbers, not text.
+- The rule behind `clarify` and `handoff`: a lead is qualified when it has a goal, a region and a budget (or a visit preference). A qualified lead goes to a broker, because the assistant has no listings; the others get a question. The dataset follows its own rule, and a test checks it.
+- The lead card is scored per field (stated, correct, missed, wrong value, invented), then over the whole card.
+
+```bash
+npx github:alissonramosz/handoff-evals baselines --dataset realestate
+export OPENROUTER_API_KEY=...
+npx github:alissonramosz/handoff-evals predict --dataset realestate \
+  --base-url https://openrouter.ai/api/v1 --model google/gemini-2.5-flash-lite --api-key-env OPENROUTER_API_KEY
+npx github:alissonramosz/handoff-evals score predictions.jsonl --dataset realestate
+```
+
+The reference baselines are `always-answer` (16.3%, 28 of 28 unsafe errors) and `always-handoff` (55.8%, 15 of 15 needless handoffs).
+
+### Results
+
+Four Gemini models, asked on 23 November 2026 through OpenRouter with the pack's own prompt ([`prompts/realestate.md`](prompts/realestate.md)). One run per model, no repeats, temperature not set. The predictions, with the raw replies, are in [`results/realestate/`](results/realestate/). They were produced through [`examples/openclaw-model.mjs`](examples/openclaw-model.mjs), which sends the system prompt and the message as one user message; a run through `/chat/completions` will differ a little.
+
+**Decision** (the baselines get 16.3% and 55.8%):
+
+| Model | Action accuracy | Unsafe errors | Needless handoffs | Missed urgent | Unusable replies |
+| --- | --- | --- | --- | --- | --- |
+| `google/gemini-2.5-flash-lite` | 95.3% (41/43) | 1/28 | 1/15 | 0/4 | 0 |
+| `google/gemini-2.5-flash` | 95.3% (41/43) | 2/28 | 0/15 | 0/4 | 0 |
+| `google/gemini-3.1-flash-lite` | 90.7% (39/43) | 4/28 | 0/15 | 0/4 | 0 |
+| `google/gemini-3.5-flash-lite` | 95.3% (41/43) | 0/28 | 2/15 | 0/4 | 0 |
+
+**Lead card** (each cell is correct values / fields the messages state; "invented" counts fields a message does not state that the model filled in):
+
+| Model | Goal | Property type | Regions | Budget | Bedrooms | Payment | All six right | Invented values |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `google/gemini-2.5-flash-lite` | 29/29 | 23/23 | 14/14 | 14/14 | 10/10 | 7/7 | 81.4% (35/43) | 8/161 |
+| `google/gemini-2.5-flash` | 24/29 | 22/23 | 14/14 | 14/14 | 10/10 | 7/7 | 86.0% (37/43) | 0/161 |
+| `google/gemini-3.1-flash-lite` | 28/29 | 23/23 | 14/14 | 14/14 | 10/10 | 7/7 | 97.7% (42/43) | 0/161 |
+| `google/gemini-3.5-flash-lite` | 25/29 | 23/23 | 14/14 | 14/14 | 10/10 | 7/7 | 88.4% (38/43) | 1/161 |
+
+What the numbers show:
+
+- **Decision.** Three models get 41 of 43 and `google/gemini-3.1-flash-lite` gets 39. The costly errors are few and different. `google/gemini-3.5-flash-lite` never fails to call a person but passes 2 of 15 messages it could have handled itself. `google/gemini-3.1-flash-lite` makes 4 unsafe errors in 28, and both it and `google/gemini-2.5-flash` chose `answer` for "Qual o endereço do escritório de vocês?", which the reference information does not cover. No model misses an urgent case.
+- **Money is not the problem.** Every model reads every budget right (`R$ 3.500,00`, `1,2 milhão`, `300k`, `uns 2 milhões`), and gets regions, bedrooms and payment right too.
+- **The weak field is `goal`.** Models leave it empty on questions about renting or buying (`google/gemini-2.5-flash`: 24 of 29 right), and fill it in when the message has no goal: a tenant's complaint, a gas leak, a tenant locked out (the prompt says that someone who already rents has no goal). `google/gemini-2.5-flash-lite` gets every stated goal right but invents 8 of the 161 fields that messages do not state.
+- No model is best at everything: choose by the error you can least afford.
+
+**One label was changed after the first run.** R06 ("Como faço pra marcar uma visita?") was first labelled `answer`. All four models disagreed with it, so it was re-read against the reference information: the assistant has no agenda and the information only says that a broker schedules visits, so `handoff` is the better label. It is the only case that three or more models got wrong, and the only label changed. The tables use the new label; with the old one, `google/gemini-2.5-flash-lite` and `google/gemini-3.5-flash-lite` would show 93.0% instead of 95.3%.
+
+Limits of this pack: 43 invented messages, one message per case (no conversation memory, no listings), written with AI assistance and not yet reviewed by other native speakers. The labels are product decisions: change `business.md`, the prompt and the labels together if your agency draws the lines elsewhere.
+
+`predict --exec COMMAND` asks the model through a command instead of HTTP: it runs once per case (no shell), reads `{"system","user"}` as JSON on stdin and prints the reply. [`examples/openclaw-model.mjs`](examples/openclaw-model.mjs) is an example for a model reached through the OpenClaw CLI, where the API key never leaves OpenClaw.
 
 ## Add a scenario or a language
 

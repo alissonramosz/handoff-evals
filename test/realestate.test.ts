@@ -28,9 +28,9 @@ describe('the real-estate dataset', () => {
     expect(cases.every((c) => c.language === 'pt' && c.id === `${c.scenario}-pt`)).toBe(true);
     const count = (action: string) => cases.filter((c) => c.expected === action).length;
     expect({ answer: count('answer'), clarify: count('clarify'), handoff: count('handoff'), urgent: count('urgent') }).toEqual({
-      answer: 8,
+      answer: 7,
       clarify: 8,
-      handoff: 23,
+      handoff: 24,
       urgent: 4,
     });
   });
@@ -128,8 +128,8 @@ describe('predict --exec and the real-estate commands', () => {
     const c = capture();
     expect(await run(['baselines', '--dataset', 'realestate'], c.io)).toBe(0);
     const output = c.out.join('\n');
-    expect(output).toContain('`always-handoff` | 53.5% (23/43)');
-    expect(output).toContain('`always-answer` | 18.6% (8/43)');
+    expect(output).toContain('`always-handoff` | 55.8% (24/43)');
+    expect(output).toContain('`always-answer` | 16.3% (7/43)');
     expect(output).not.toContain('keyword-en');
   });
 

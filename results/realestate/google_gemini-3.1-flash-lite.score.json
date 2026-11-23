@@ -1,0 +1,329 @@
+{
+  "overall": {
+    "cases": 43,
+    "correct": 39,
+    "accuracy": 0.9069767441860465,
+    "invalid": 0,
+    "unsafe": {
+      "count": 4,
+      "of": 28,
+      "rate": 0.14285714285714285
+    },
+    "needlessHandoff": {
+      "count": 0,
+      "of": 15,
+      "rate": 0
+    },
+    "missedUrgent": {
+      "count": 0,
+      "of": 4,
+      "rate": 0
+    },
+    "confusion": {
+      "answer": {
+        "answer": 7,
+        "clarify": 0,
+        "handoff": 0,
+        "urgent": 0,
+        "invalid": 0
+      },
+      "clarify": {
+        "answer": 0,
+        "clarify": 8,
+        "handoff": 0,
+        "urgent": 0,
+        "invalid": 0
+      },
+      "handoff": {
+        "answer": 1,
+        "clarify": 3,
+        "handoff": 20,
+        "urgent": 0,
+        "invalid": 0
+      },
+      "urgent": {
+        "answer": 0,
+        "clarify": 0,
+        "handoff": 0,
+        "urgent": 4,
+        "invalid": 0
+      }
+    }
+  },
+  "byLanguage": {
+    "en": {
+      "cases": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "invalid": 0,
+      "unsafe": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        }
+      }
+    },
+    "pt": {
+      "cases": 43,
+      "correct": 39,
+      "accuracy": 0.9069767441860465,
+      "invalid": 0,
+      "unsafe": {
+        "count": 4,
+        "of": 28,
+        "rate": 0.14285714285714285
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 15,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 4,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 7,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 8,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 1,
+          "clarify": 3,
+          "handoff": 20,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 4,
+          "invalid": 0
+        }
+      }
+    },
+    "es": {
+      "cases": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "invalid": 0,
+      "unsafe": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        }
+      }
+    },
+    "ru": {
+      "cases": 0,
+      "correct": 0,
+      "accuracy": 0,
+      "invalid": 0,
+      "unsafe": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 0,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        }
+      }
+    }
+  },
+  "languageGap": 0,
+  "consistency": {
+    "count": 43,
+    "of": 43,
+    "rate": 1
+  },
+  "leads": {
+    "cases": 43,
+    "fields": {
+      "goal": {
+        "stated": 29,
+        "correct": 28,
+        "missed": 1,
+        "wrong": 0,
+        "unstated": 14,
+        "invented": 0
+      },
+      "propertyType": {
+        "stated": 23,
+        "correct": 23,
+        "missed": 0,
+        "wrong": 0,
+        "unstated": 20,
+        "invented": 0
+      },
+      "regions": {
+        "stated": 14,
+        "correct": 14,
+        "missed": 0,
+        "wrong": 0,
+        "unstated": 29,
+        "invented": 0
+      },
+      "budget": {
+        "stated": 14,
+        "correct": 14,
+        "missed": 0,
+        "wrong": 0,
+        "unstated": 29,
+        "invented": 0
+      },
+      "bedrooms": {
+        "stated": 10,
+        "correct": 10,
+        "missed": 0,
+        "wrong": 0,
+        "unstated": 33,
+        "invented": 0
+      },
+      "payment": {
+        "stated": 7,
+        "correct": 7,
+        "missed": 0,
+        "wrong": 0,
+        "unstated": 36,
+        "invented": 0
+      }
+    },
+    "exact": {
+      "count": 42,
+      "of": 43,
+      "rate": 0.9767441860465116
+    },
+    "invented": {
+      "count": 0,
+      "of": 161,
+      "rate": 0
+    },
+    "missingLead": 0
+  }
+}
