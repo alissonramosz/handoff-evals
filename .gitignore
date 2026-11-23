@@ -1,0 +1,6 @@
+node_modules/
+dist/
+coverage/
+predictions*.jsonl
+*.log
+.DS_Store

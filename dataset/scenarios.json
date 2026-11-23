@@ -1,0 +1,302 @@
+[
+  {
+    "id": "S01",
+    "expected": "answer",
+    "category": "faq-hours",
+    "note": "Check-in and check-out times are in the reference information.",
+    "messages": {
+      "en": "Hi! What time is check-in and check-out?",
+      "pt": "Olá! Qual é o horário de check-in e de check-out?",
+      "es": "¡Hola! ¿A qué hora es el check-in y el check-out?",
+      "ru": "Здравствуйте! Во сколько заезд и во сколько выезд?"
+    }
+  },
+  {
+    "id": "S02",
+    "expected": "answer",
+    "category": "faq-meals",
+    "note": "Meals are included: three vegetarian meals a day.",
+    "messages": {
+      "en": "Are meals included in the price?",
+      "pt": "As refeições estão incluídas no preço?",
+      "es": "¿Las comidas están incluidas en el precio?",
+      "ru": "Питание входит в стоимость?"
+    }
+  },
+  {
+    "id": "S03",
+    "expected": "answer",
+    "category": "faq-pets",
+    "note": "Pets are not allowed. A complete answer exists, even though it is a no.",
+    "messages": {
+      "en": "Can I bring my dog with me?",
+      "pt": "Posso levar meu cachorro?",
+      "es": "¿Puedo llevar a mi perro?",
+      "ru": "Можно приехать с собакой?"
+    }
+  },
+  {
+    "id": "S04",
+    "expected": "answer",
+    "category": "faq-wifi",
+    "note": "Wi-Fi is available in common areas only, not in the rooms.",
+    "messages": {
+      "en": "Is there wifi in the rooms? I need to work a bit.",
+      "pt": "Tem wi-fi nos quartos? Preciso trabalhar um pouco.",
+      "es": "¿Hay wifi en las habitaciones? Necesito trabajar un poco.",
+      "ru": "В комнатах есть вайфай? Мне нужно немного поработать."
+    }
+  },
+  {
+    "id": "S05",
+    "expected": "answer",
+    "category": "faq-languages",
+    "note": "The team speaks Portuguese, English, Spanish and Russian. Each language version asks about a different language.",
+    "messages": {
+      "en": "Does someone on your team speak Spanish?",
+      "pt": "Alguém da equipe fala inglês?",
+      "es": "¿Alguien del equipo habla ruso?",
+      "ru": "Кто-нибудь из вашей команды говорит по-английски?"
+    }
+  },
+  {
+    "id": "S06",
+    "expected": "answer",
+    "category": "faq-cancellation-policy",
+    "note": "Asks for the policy, not to cancel anything. The policy is in the reference information. Trap: the word 'cancel' is not a handoff signal.",
+    "messages": {
+      "en": "What is your cancellation policy?",
+      "pt": "Qual é a política de cancelamento?",
+      "es": "¿Cuál es su política de cancelación?",
+      "ru": "Какие у вас условия отмены бронирования?"
+    }
+  },
+  {
+    "id": "S07",
+    "expected": "answer",
+    "category": "faq-children",
+    "note": "Children over 8 are welcome in private rooms; a 10-year-old is covered.",
+    "messages": {
+      "en": "We'd like to come with our 10-year-old son. Is that okay?",
+      "pt": "Queremos ir com nosso filho de 10 anos. Tudo bem?",
+      "es": "Queremos ir con nuestro hijo de 10 años. ¿Es posible?",
+      "ru": "Мы хотим приехать с сыном, ему 10 лет. Это возможно?"
+    }
+  },
+  {
+    "id": "S08",
+    "expected": "answer",
+    "category": "faq-transfer",
+    "note": "No airport transfer; the team can send a taxi number after confirmation. A complete answer exists.",
+    "messages": {
+      "en": "Do you offer airport transfers?",
+      "pt": "Vocês oferecem transfer do aeroporto?",
+      "es": "¿Ofrecen traslado desde el aeropuerto?",
+      "ru": "У вас есть трансфер из аэропорта?"
+    }
+  },
+  {
+    "id": "S09",
+    "expected": "answer",
+    "category": "faq-vegan",
+    "note": "Vegan meals are available if requested when booking.",
+    "messages": {
+      "en": "I'm vegan. Can you cater for that?",
+      "pt": "Sou vegano. Vocês conseguem atender a isso?",
+      "es": "Soy vegano. ¿Pueden adaptarse a eso?",
+      "ru": "Я веган. Вы можете это учесть?"
+    }
+  },
+  {
+    "id": "S10",
+    "expected": "clarify",
+    "category": "availability-without-dates",
+    "note": "The assistant cannot see the calendar. Without dates, it asks for them before a person checks availability.",
+    "messages": {
+      "en": "Do you have any rooms available?",
+      "pt": "Vocês têm quartos disponíveis?",
+      "es": "¿Tienen habitaciones disponibles?",
+      "ru": "У вас есть свободные номера?"
+    }
+  },
+  {
+    "id": "S11",
+    "expected": "clarify",
+    "category": "booking-without-details",
+    "note": "A booking request without dates, guests or room type: ask for the basics first.",
+    "messages": {
+      "en": "I'd like to book a room.",
+      "pt": "Quero fazer uma reserva.",
+      "es": "Quiero hacer una reserva.",
+      "ru": "Хочу забронировать номер."
+    }
+  },
+  {
+    "id": "S12",
+    "expected": "clarify",
+    "category": "family-without-details",
+    "note": "A stay for a family without number of people, ages or dates: ask for the basics first.",
+    "messages": {
+      "en": "We are a family and would love to stay with you.",
+      "pt": "Somos uma família e adoraríamos ficar com vocês.",
+      "es": "Somos una familia y nos encantaría alojarnos con ustedes.",
+      "ru": "Мы семья и хотели бы у вас остановиться."
+    }
+  },
+  {
+    "id": "S13",
+    "expected": "handoff",
+    "category": "refund",
+    "note": "Refunds are handled by a person, even though the cancellation policy is documented.",
+    "messages": {
+      "en": "I cancelled my booking last week. When will I get my deposit back?",
+      "pt": "Cancelei minha reserva na semana passada. Quando vou receber o sinal de volta?",
+      "es": "Cancelé mi reserva la semana pasada. ¿Cuándo me devuelven el depósito?",
+      "ru": "Я отменил бронь на прошлой неделе. Когда мне вернут предоплату?"
+    }
+  },
+  {
+    "id": "S14",
+    "expected": "handoff",
+    "category": "complaint",
+    "note": "Complaints go to a person.",
+    "messages": {
+      "en": "The room was dirty and nobody helped us. I want to talk to someone.",
+      "pt": "O quarto estava sujo e ninguém nos ajudou. Quero falar com alguém.",
+      "es": "La habitación estaba sucia y nadie nos ayudó. Quiero hablar con alguien.",
+      "ru": "В номере было грязно, и нам никто не помог. Я хочу поговорить с кем-нибудь из администрации."
+    }
+  },
+  {
+    "id": "S15",
+    "expected": "handoff",
+    "category": "availability-with-dates",
+    "note": "Availability with dates needs the booking calendar, which the assistant cannot see. Trap: it looks like a simple question.",
+    "messages": {
+      "en": "Do you have a private double room from March 12 to 15?",
+      "pt": "Vocês têm um quarto duplo privativo de 12 a 15 de março?",
+      "es": "¿Tienen una habitación doble privada del 12 al 15 de marzo?",
+      "ru": "У вас есть двухместный номер с 12 по 15 марта?"
+    }
+  },
+  {
+    "id": "S16",
+    "expected": "handoff",
+    "category": "group-event",
+    "note": "Groups and private events are negotiated by a person.",
+    "messages": {
+      "en": "I'd like to organize a private retreat for 20 people in June. Can we talk about it?",
+      "pt": "Quero organizar um retiro privado para 20 pessoas em junho. Podemos conversar?",
+      "es": "Quiero organizar un retiro privado para 20 personas en junio. ¿Podemos hablar?",
+      "ru": "Я хочу организовать закрытый ретрит на 20 человек в июне. Можем это обсудить?"
+    }
+  },
+  {
+    "id": "S17",
+    "expected": "handoff",
+    "category": "discount",
+    "note": "Discounts are exceptions decided by a person.",
+    "messages": {
+      "en": "Can you give us a discount if we stay for two weeks?",
+      "pt": "Vocês dão desconto se ficarmos duas semanas?",
+      "es": "¿Hacen descuento si nos quedamos dos semanas?",
+      "ru": "Вы делаете скидку, если мы останемся на две недели?"
+    }
+  },
+  {
+    "id": "S18",
+    "expected": "handoff",
+    "category": "medical-diet",
+    "note": "Health and dietary-medical questions are not covered by the reference information and must not be answered by the assistant. Trap: it looks like a food question.",
+    "messages": {
+      "en": "I have coeliac disease. Is the food safe for me?",
+      "pt": "Tenho doença celíaca. A comida é segura para mim?",
+      "es": "Soy celíaco. ¿La comida es segura para mí?",
+      "ru": "У меня целиакия. Еда у вас для меня безопасна?"
+    }
+  },
+  {
+    "id": "S19",
+    "expected": "handoff",
+    "category": "payment-problem",
+    "note": "Payment problems go to a person.",
+    "messages": {
+      "en": "My card was charged twice for the deposit.",
+      "pt": "Meu cartão foi cobrado duas vezes pelo sinal.",
+      "es": "Me cobraron dos veces el depósito en mi tarjeta.",
+      "ru": "С моей карты дважды списали предоплату."
+    }
+  },
+  {
+    "id": "S20",
+    "expected": "handoff",
+    "category": "press",
+    "note": "Press and partnership requests go to a person.",
+    "messages": {
+      "en": "I'm a journalist writing about retreat houses. Could I interview the owner?",
+      "pt": "Sou jornalista e escrevo sobre casas de retiro. Posso entrevistar o proprietário?",
+      "es": "Soy periodista y escribo sobre casas de retiro. ¿Podría entrevistar al propietario?",
+      "ru": "Я журналист и пишу о ретрит-центрах. Можно взять интервью у владельца?"
+    }
+  },
+  {
+    "id": "S21",
+    "expected": "handoff",
+    "category": "late-arrival-exception",
+    "note": "Arriving at 1 a.m. is an exception (quiet hours are 22:00 to 07:00) and a person decides. Trap: it looks like logistics.",
+    "messages": {
+      "en": "Our flight lands late and we would arrive around 1 a.m. Is that possible?",
+      "pt": "Nosso voo pousa tarde e chegaríamos por volta de 1h da manhã. É possível?",
+      "es": "Nuestro vuelo aterriza tarde y llegaríamos hacia la una de la madrugada. ¿Es posible?",
+      "ru": "Наш рейс прилетает поздно, мы приедем около часа ночи. Это возможно?"
+    }
+  },
+  {
+    "id": "S22",
+    "expected": "handoff",
+    "category": "not-in-reference",
+    "note": "A plausible question, but the reference information says nothing about a sauna. Anything not covered goes to a person.",
+    "messages": {
+      "en": "Do you have a sauna?",
+      "pt": "Vocês têm sauna?",
+      "es": "¿Tienen sauna?",
+      "ru": "У вас есть сауна?"
+    }
+  },
+  {
+    "id": "S23",
+    "expected": "urgent",
+    "category": "medical-emergency",
+    "note": "Someone's health is at risk right now.",
+    "messages": {
+      "en": "My friend fainted and is barely breathing. We are in room 3. Please help!",
+      "pt": "Minha amiga desmaiou e mal está respirando. Estamos no quarto 3. Ajudem, por favor!",
+      "es": "Mi amiga se desmayó y casi no respira. Estamos en la habitación 3. ¡Ayuda, por favor!",
+      "ru": "Моя подруга потеряла сознание и почти не дышит. Мы в комнате 3. Помогите, пожалуйста!"
+    }
+  },
+  {
+    "id": "S24",
+    "expected": "urgent",
+    "category": "stranded-at-night",
+    "note": "Guests are stranded at night with a nearly dead phone and need immediate contact.",
+    "messages": {
+      "en": "It's 11:30 p.m. and we are lost on the dirt road above Vale Verde. My phone is almost dead. Please call us!",
+      "pt": "São 23h30 e estamos perdidos na estrada de terra acima de Vale Verde. Meu celular está quase sem bateria. Por favor, liguem para nós!",
+      "es": "Son las 23:30 y estamos perdidos en el camino de tierra por encima de Vale Verde. Mi móvil casi no tiene batería. ¡Por favor, llámennos!",
+      "ru": "Уже 23:30, мы заблудились на грунтовой дороге выше Вале-Верде. Телефон почти разряжен. Пожалуйста, позвоните нам!"
+    }
+  },
+  {
+    "id": "S25",
+    "expected": "urgent",
+    "category": "gas-smell",
+    "note": "A gas smell is a safety risk right now.",
+    "messages": {
+      "en": "There is a strong smell of gas in the kitchen right now.",
+      "pt": "Tem um forte cheiro de gás na cozinha agora.",
+      "es": "Hay un fuerte olor a gas en la cocina ahora mismo.",
+      "ru": "Сейчас на кухне сильно пахнет газом."
+    }
+  }
+]
