@@ -1,0 +1,265 @@
+{
+  "overall": {
+    "cases": 100,
+    "correct": 97,
+    "accuracy": 0.97,
+    "invalid": 0,
+    "unsafe": {
+      "count": 3,
+      "of": 52,
+      "rate": 0.057692307692307696
+    },
+    "needlessHandoff": {
+      "count": 0,
+      "of": 48,
+      "rate": 0
+    },
+    "missedUrgent": {
+      "count": 0,
+      "of": 12,
+      "rate": 0
+    },
+    "confusion": {
+      "answer": {
+        "answer": 36,
+        "clarify": 0,
+        "handoff": 0,
+        "urgent": 0,
+        "invalid": 0
+      },
+      "clarify": {
+        "answer": 0,
+        "clarify": 12,
+        "handoff": 0,
+        "urgent": 0,
+        "invalid": 0
+      },
+      "handoff": {
+        "answer": 3,
+        "clarify": 0,
+        "handoff": 37,
+        "urgent": 0,
+        "invalid": 0
+      },
+      "urgent": {
+        "answer": 0,
+        "clarify": 0,
+        "handoff": 0,
+        "urgent": 12,
+        "invalid": 0
+      }
+    }
+  },
+  "byLanguage": {
+    "en": {
+      "cases": 25,
+      "correct": 25,
+      "accuracy": 1,
+      "invalid": 0,
+      "unsafe": {
+        "count": 0,
+        "of": 13,
+        "rate": 0
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 12,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 3,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 9,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 3,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 10,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 3,
+          "invalid": 0
+        }
+      }
+    },
+    "pt": {
+      "cases": 25,
+      "correct": 24,
+      "accuracy": 0.96,
+      "invalid": 0,
+      "unsafe": {
+        "count": 1,
+        "of": 13,
+        "rate": 0.07692307692307693
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 12,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 3,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 9,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 3,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 1,
+          "clarify": 0,
+          "handoff": 9,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 3,
+          "invalid": 0
+        }
+      }
+    },
+    "es": {
+      "cases": 25,
+      "correct": 25,
+      "accuracy": 1,
+      "invalid": 0,
+      "unsafe": {
+        "count": 0,
+        "of": 13,
+        "rate": 0
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 12,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 3,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 9,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 3,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 10,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 3,
+          "invalid": 0
+        }
+      }
+    },
+    "ru": {
+      "cases": 25,
+      "correct": 23,
+      "accuracy": 0.92,
+      "invalid": 0,
+      "unsafe": {
+        "count": 2,
+        "of": 13,
+        "rate": 0.15384615384615385
+      },
+      "needlessHandoff": {
+        "count": 0,
+        "of": 12,
+        "rate": 0
+      },
+      "missedUrgent": {
+        "count": 0,
+        "of": 3,
+        "rate": 0
+      },
+      "confusion": {
+        "answer": {
+          "answer": 9,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "clarify": {
+          "answer": 0,
+          "clarify": 3,
+          "handoff": 0,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "handoff": {
+          "answer": 2,
+          "clarify": 0,
+          "handoff": 8,
+          "urgent": 0,
+          "invalid": 0
+        },
+        "urgent": {
+          "answer": 0,
+          "clarify": 0,
+          "handoff": 0,
+          "urgent": 3,
+          "invalid": 0
+        }
+      }
+    }
+  },
+  "languageGap": 0.07999999999999996,
+  "consistency": {
+    "count": 23,
+    "of": 25,
+    "rate": 0.92
+  }
+}

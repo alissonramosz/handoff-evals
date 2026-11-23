@@ -5,7 +5,7 @@
 
 Multilingual test cases and a scorer for AI enquiry routing and human handoff.
 25 situations from a fictional retreat house, each written in English, Portuguese, Spanish and Russian (100 messages), with the right action for each one.
-A second dataset, [for a real-estate agency in Brazilian Portuguese](#real-estate-pack-brazilian-portuguese), also scores the lead card the assistant fills in, and has results for four models.
+A second dataset, [for a real-estate agency in Brazilian Portuguese](#real-estate-pack-brazilian-portuguese), also scores the lead card the assistant fills in. Both datasets include measured results for four Gemini models and a record of the errors they made.
 
 ## The problem
 
@@ -51,7 +51,7 @@ Unsafe errors and needless handoffs are reported apart on purpose: one accuracy 
 
 ## Baselines
 
-No language model has been evaluated on this dataset yet (the [real-estate pack](#real-estate-pack-brazilian-portuguese) below has results): running one needs an API key and costs money. These are the reference points, reproducible with `npm run baselines`:
+These simple reference points are reproducible with `npm run baselines`, without an API key. Results from four models follow below.
 
 | Baseline | EN | PT | ES | RU | Unsafe errors | Needless handoffs | Missed urgent | Consistency |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -63,6 +63,72 @@ No language model has been evaluated on this dataset yet (the [real-estate pack]
 - `keyword-en` is a set of English-only keyword rules, written once by the dataset author (who knew the scenarios) and not tuned afterwards, so its English score is optimistic. It still shows the point of the dataset: a system built around one language does well in that language and falls apart in the others.
 
 Results for real models are welcome as pull requests: the predictions file, the `score` output, the model name and the date.
+
+## Model results: multilingual retreat house
+
+Four Gemini model IDs evaluated on **23 November 2026**, through OpenRouter and
+[`examples/openclaw-model.mjs`](examples/openclaw-model.mjs), using the existing
+[`reference prompt`](prompts/router.md). One completed four-model batch, 100 messages
+per model; no labels or prompts changed after seeing these results. Temperature and
+reasoning level were not explicitly set. The adapter combines the reference prompt
+and guest message into one user message, with a Portuguese separator in every language.
+These results describe that setup, not a separate-system-message API run.
+
+The [predictions, raw replies, saved scores and run record](results/retreat-house/)
+are published so the scores can be recalculated **without calling a model**.
+An earlier, separate promptfoo integration check gave `gemini-2.5-flash-lite` 95/100;
+this table uses its 94/100 result from the shared four-model batch, not the better run.
+
+### Decisions and error costs
+
+| Model | Accuracy | Unsafe errors | Needless handoffs | Missed urgent |
+| --- | --- | --- | --- | --- |
+| `google/gemini-2.5-flash-lite` | 94.0% (94/100) | 4/52 | 2/48 | 0/12 |
+| `google/gemini-2.5-flash` | 97.0% (97/100) | 3/52 | 0/48 | 0/12 |
+| `google/gemini-3.1-flash-lite` | 96.0% (96/100) | 0/52 | 0/48 | 0/12 |
+| `google/gemini-3.5-flash-lite` | 98.0% (98/100) | 1/52 | 1/48 | 0/12 |
+
+"Unsafe" here means a failure to route a case that the dataset requires a person
+to handle. It is not a complete assessment of the safety of the written reply.
+The denominators are 52 cases needing a person, 48 that can be handled without one,
+and 12 urgent messages (three urgent scenarios in four languages).
+
+### Language differences
+
+| Model | EN | PT | ES | RU | Language gap | Consistency |
+| --- | --- | --- | --- | --- | --- | --- |
+| `google/gemini-2.5-flash-lite` | 96.0% | 96.0% | 92.0% | 92.0% | 4.0 pp | 92.0% (23/25) |
+| `google/gemini-2.5-flash` | 100.0% | 96.0% | 100.0% | 92.0% | 8.0 pp | 92.0% (23/25) |
+| `google/gemini-3.1-flash-lite` | 96.0% | 96.0% | 96.0% | 96.0% | 0.0 pp | 100.0% (25/25) |
+| `google/gemini-3.5-flash-lite` | 100.0% | 100.0% | 100.0% | 92.0% | 8.0 pp | 92.0% (23/25) |
+
+Each language has 25 messages: one changed decision moves that language's score by
+four percentage points. Consistency is agreement across languages, not correctness;
+`gemini-3.1-flash-lite` makes the same mistake in all four versions of S07.
+
+### What would change a product decision
+
+- **The highest accuracy is not the lowest escalation risk.** `gemini-3.5-flash-lite`
+  gets 98/100 but misses one required human handoff. `gemini-3.1-flash-lite` gets
+  96/100 with zero unsafe-routing errors in this sample; its four errors are extra
+  clarification questions about a child already covered by the house policy (S07).
+- **An information gap is different from a negative answer.** The reference says
+  nothing about a sauna (S22). `gemini-2.5-flash-lite` chooses `answer` in all four
+  languages; `gemini-2.5-flash` does so in PT and RU. In S22-pt, the latter even says
+  there is no sauna. A human handoff is required because the fact is unknown.
+- **Exceptions reveal a language gap.** In the Russian late-arrival case (S21-ru),
+  both `gemini-2.5-flash` and `gemini-3.5-flash-lite` choose `answer` instead of
+  handing off the exception. The latter's reply allows arrival at any time, which
+  the reference does not establish. The former replies in Portuguese: this scorer
+  measures the action, not whether the reply uses the requested language.
+- **This is a diagnostic, not a winner announcement.** The results identify which
+  cases deserve a routing guard, prompt experiment or reply-quality check next.
+  Zero missed urgent cases in this small batch does not prove production safety.
+
+Only 25 invented situations, translated into four languages, are represented;
+the 100 messages are not 100 independent scenarios. There are no customer outcomes,
+repeated-run confidence intervals, measured costs or captured provider-version pins.
+The numbers should not be generalized into a model leaderboard.
 
 ## Evaluate your own system
 

@@ -1,0 +1,64 @@
+{
+  "dataset": "retreat",
+  "evaluated_on": "2026-11-23",
+  "source_commit": "48d332783dec95935c16f5956ea1998d814c2cf8",
+  "scenarios": 25,
+  "languages": [
+    "en",
+    "pt",
+    "es",
+    "ru"
+  ],
+  "cases_per_model": 100,
+  "transport": "OpenClaw infer model run --gateway via examples/openclaw-model.mjs; OpenRouter provider",
+  "prompt_layout": "Reference prompt with business information and the guest message in one user message; Portuguese separator used in every language",
+  "temperature": "Not explicitly set by the runner; gateway/provider defaults apply",
+  "thinking": "Not explicitly set; no fallback run recorded in the batch logs",
+  "concurrency_per_model": 3,
+  "batch_runs_per_model": 1,
+  "earlier_exploratory_runs": "A separate 100-case promptfoo integration check with gemini-2.5-flash-lite scored 95/100. Not pooled into this four-model batch; its batch score is 94/100.",
+  "model_version_limit": "Requested model IDs recorded; resolved provider/version, token usage and billing were not captured.",
+  "cost": "Not measured",
+  "label_changes_after_this_batch": false,
+  "inputs_sha256": {
+    "dataset/cases.jsonl": "e072f36f60e555d5e2d8917cdf84e8be24f8e99cd7855c38f38b71570541916e",
+    "dataset/scenarios.json": "fa8dfdea4149a275687f69f93e997a2d6d796f3fd45160c4ccc8f5c18c6c9df2",
+    "dataset/business.md": "5f83a2645844f5b3964dce35e75e4b136a7b527e95f6452de163e4fd3ed4acf7",
+    "prompts/router.md": "2e966af745f8cdfef785b50d8f5780e290c23a79213862aa5a8b9343075bdac8",
+    "examples/openclaw-model.mjs": "b80417a6e5f72b057e0a5cc064e11039f00c29182da3de0e81c8f0840aa52c75"
+  },
+  "runs": [
+    {
+      "requested_model": "google/gemini-2.5-flash-lite",
+      "predictions": "google_gemini-2.5-flash-lite.jsonl",
+      "predictions_sha256": "53d1d5a6fad99e40d3dd77c5c4ddc9a59fb7c46c493537171b0d3edc59b9a6a6",
+      "score": "google_gemini-2.5-flash-lite.score.json",
+      "score_sha256": "6017de76655403e30c20e83994e63f61ed9146458d456e093024e9cc1e029415",
+      "predictions_count": 100
+    },
+    {
+      "requested_model": "google/gemini-2.5-flash",
+      "predictions": "google_gemini-2.5-flash.jsonl",
+      "predictions_sha256": "9d048bca61abf1a1c47f4a6990f0c41bf6cb23d5bd885e1de948305c9ce4bfb3",
+      "score": "google_gemini-2.5-flash.score.json",
+      "score_sha256": "10cea31a863ea73b972083dc218b5c881f5205a5d33041f837a9b6a4b692ea20",
+      "predictions_count": 100
+    },
+    {
+      "requested_model": "google/gemini-3.1-flash-lite",
+      "predictions": "google_gemini-3.1-flash-lite.jsonl",
+      "predictions_sha256": "6ae6a4aee657997f9a4cbe3fcd1e9489dcb0b5eeb92925ac9bef97df6aae44d1",
+      "score": "google_gemini-3.1-flash-lite.score.json",
+      "score_sha256": "109f9dfbf48d2d19aad334aab54165d7fcbca19faa74c675bde83b35a9c08fca",
+      "predictions_count": 100
+    },
+    {
+      "requested_model": "google/gemini-3.5-flash-lite",
+      "predictions": "google_gemini-3.5-flash-lite.jsonl",
+      "predictions_sha256": "0e6bfc0e2d2530eec6e0c68a5cfe353dea39f0c397706910a0e972eb631e48f5",
+      "score": "google_gemini-3.5-flash-lite.score.json",
+      "score_sha256": "736af53e157126aabe68cc1423e0379efba06781108666dd2f5e14f348656da1",
+      "predictions_count": 100
+    }
+  ]
+}
